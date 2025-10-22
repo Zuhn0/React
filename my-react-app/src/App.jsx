@@ -1,7 +1,16 @@
-import Card from "./Card.jsx"
+//HOW TO STYLE REACT COMPONENT WITH CSS
+//---------------------------------------
+//(NOt including external frameworks or preprocessors)
+// 1. External
+// 2. Modules
+// 3. Inline
+
+import Button from './Button.jsx'
 function App() {
    return(
-      <Card></Card>
+      <>
+      <Button></Button>
+      </>
    );
 }
 
