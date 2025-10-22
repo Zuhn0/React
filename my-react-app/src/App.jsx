@@ -1,15 +1,16 @@
-//HOW TO STYLE REACT COMPONENT WITH CSS
-//---------------------------------------
-//(NOt including external frameworks or preprocessors)
-// 1. External
-// 2. Modules
-// 3. Inline
+//props = read-only properties that are shared between components
+//        A parent component can send data to a child component
+//        <Component Key=value  />
 
-import Button from './Button.jsx'
+
+import Student from './Student.jsx'
 function App() {
    return(
       <>
-      <Button></Button>
+     <Student name="Spongebob" age={30} isStudent={true}/>
+     <Student name="Patrick" age={40} isStudent={false}/>
+     <Student name="Squidward" age={50} isStudent={true}/>
+     <Student />
       </>
    );
 }
