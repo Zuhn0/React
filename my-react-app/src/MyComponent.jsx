@@ -1,35 +1,30 @@
-//Updater function =A function passes as an argument to setState() usually
-//                  ex. setYear(arrow function)
-//                  Allow for safe updates based on the previous state
-//                  Used with multiple State updates and asynchronous functions
-//                  Good practise to use updater function//
-
-//Problem without it imagine //
-///      function increment(){
-//                setCount(year+1);  
-//                setCount(year+1);
-//                setCount(year+1);                
-//           }
-//after hitting increment year still remains 0 to 1 or 1 increase only as count is not updated
-// and it treats each setCount as (0+1),(0+1),(0+1);
-
 import React, {useState} from 'react';
 
 function MyComponent(){
-
-    const[count, setCount]=useState(0);
-
-    function increment(){
-       //ACTS AS QUEUE NOW//
-        setCount(c => c+1);
-        setCount(c => c+1);
-        setCount(c => c+1);
-    };
+    const [car, setCar] = useState({year: 2024,
+                                    make: "Nissan",
+                                    model: "GTR"});
     
-    function decrement(){
-       //ACTS AS QUEUE NOW//
-        setCount(c => c-1);
-        setCount(c => c-1);
-        setCount(c => c-1);
-    };
+    function handleYearChange(event){
+        setCar(c=> ({...c, year: event.target.value}));
+        //...car is a spread  operator which || year: 2024,make: "Nissan",model: "GTR" , year:newlyset ||    it updates the year in that object
+    }
+        function handleMakeChange(event){
+        setCar(c => ({...c, make: event.target.value}));
+    }
+        function handleModelChange(event){
+        setCar(c => ({...c, model: event.target.value}));
+    }
+
+    return (
+        <div>
+            <p>Your Favorite Car is : {car.year} {car.make} {car.model}</p>
+
+            <input type="number" value={car.year} onChange={handleYearChange} /> <br/>
+            <input type="text" value={car.make} onChange={handleMakeChange} /> <br/>
+            <input type="text" value={car.model} onChange={handleModelChange}/> <br/>
+        </div>
+    );
+
 }
+export default MyComponent
