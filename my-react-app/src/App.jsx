@@ -12,14 +12,14 @@
 //  CONSUMER COMPONENTS
 // 1.import React, { useContext } from 'react'
 //   import { MyContext } from './ComponentA';
-//
-import ComponentA from './ComponentA.jsx'
+
 import './index.css'
 import React from 'react';
+import MyComponent from './MyComponent.jsx';
 function App(){
 
      return (
-      <ComponentA/>
+      <MyComponent/>
      );
 }
 
